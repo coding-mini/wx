@@ -7,6 +7,19 @@ use Illuminate\Support\Facades\Log;
 
 class WechatController extends Controller
 {
+    private $wechat;
+    private $wechat_user;
+
+    /**
+     * WechatController constructor.
+     * @param $wechat
+     */
+    public function __construct()
+    {
+        $this->wechat = app('wechat.official_account');
+        $this->wechat_user = $this->wechat->user;
+    }
+
     /**
      * 处理微信的请求消息
      *
@@ -37,5 +50,10 @@ class WechatController extends Controller
         });
 
         return $wechat->server->serve();
+    }
+
+    public function getUsers()
+    {
+        dd($this->wechat_user->list());
     }
 }
