@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class WechatController extends Controller
 {
@@ -13,6 +14,7 @@ class WechatController extends Controller
      */
     public function serve()
     {
+        Log::info('I am in serve');
         $wechat = app('wechat.official_account');
 
         $wechat->server->push(function($message){
