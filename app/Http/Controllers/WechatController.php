@@ -54,6 +54,8 @@ class WechatController extends Controller
 
     public function getUsers()
     {
-        dd($this->wechat_user->list());
+        $openids = $this->wechat_user->list()->data->openid;
+        $users = $this->wechat_user->select($openids);
+        dd($users);
     }
 }
