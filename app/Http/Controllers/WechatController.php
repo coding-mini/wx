@@ -17,8 +17,8 @@ class WechatController extends Controller
         $wechat = app('wechat.official_account');
 
         $wechat->server->push(function($message) use ($wechat){
-            $user = $wechat->user->get($message['FromUserName']);
-            switch ($message['MsgType']) {
+            $user = $wechat->user->get($message->FromUserName);
+            switch ($message->MsgType) {
                 case 'event':
                     return $user->nickname.'收到事件消息';
 
