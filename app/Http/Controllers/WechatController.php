@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use EasyWeChat\Kernel\Messages\Image;
+use EasyWeChat\Kernel\Messages\NewsItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -37,7 +38,14 @@ class WechatController extends Controller
                     return $user->nickname.'收到事件消息';
 
                 case 'text':
-                    return $user->nickname.'收到文字消息';
+                    $new = new NewsItem([
+                        'title'       => 'Coding10 欢迎你',
+                        'description' => 'XXXXX',
+                        'url'         => 'http://www.coding10.com',
+                        'image'       => public_path('coding10.png')
+                    ]);
+                    return $new;
+                    //return $user->nickname.'收到文字消息';
 
                 case 'image':
                     $image = new Image('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo');
