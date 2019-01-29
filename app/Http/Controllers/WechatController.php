@@ -79,6 +79,12 @@ class WechatController extends Controller
         dd($result);
     }
 
+    public function getMaterials()
+    {
+        $media_ids = $this->wechat->material->list('news');
+        dd($media_ids);
+    }
+
     public function getMaterial($material_id)
     {
         $stream = $this->wechat->material->get($material_id);
