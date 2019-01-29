@@ -18,4 +18,4 @@ Route::get('/', function () {
 Route::any('/wechat', 'WechatController@serve');
 Route::get('/wechat/users', 'WechatController@getUsers');
 Route::get('/wechat/tags', 'WechatController@getTags');
-Route::get('/tag/{id}', 'WechatController@getTags');
+Route::get('/tag/{id}', 'WechatController@getUsersBelongsToTag');
