@@ -21,3 +21,4 @@ Route::get('/wechat/tags', 'WechatController@getTags');
 Route::get('/tag/{id}', 'WechatController@getUsersBelongsToTag');
 
 Route::get('/upload/image', 'WechatController@uploadImage');
+Route::get('/material/{material_id}', 'WechatController@getMaterial');
