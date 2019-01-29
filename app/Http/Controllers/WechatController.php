@@ -78,6 +78,10 @@ class WechatController extends Controller
 
     public function getMaterial($material_id)
     {
-        dd($this->wechat->material->get($material_id));
+        $stream = $this->wechat->material->get($material_id);
+        if ($stream instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
+            // 以内容 md5 为文件名
+            $stream->save('public/materials');
+        }
     }
 }
