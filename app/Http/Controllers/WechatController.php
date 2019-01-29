@@ -45,6 +45,7 @@ class WechatController extends Controller
                         'url'         => 'http://www.coding10.com',
                         'image'       => public_path('coding10.png')
                     ]);
+
                     return new News([$new]);
                     //return $user->nickname.'收到文字消息';
 
