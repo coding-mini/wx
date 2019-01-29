@@ -40,7 +40,9 @@ class WechatController extends Controller
                     return $user->nickname.'收到文字消息';
 
                 case 'image':
-                    return $user->nickname.'收到图片消息';
+                    $image = new Image('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo');
+                    return $image;
+                    //return $user->nickname.'收到图片消息';
 
                 case 'voice':
                     return $user->nickname.'收到语音消息';
