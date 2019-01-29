@@ -39,6 +39,7 @@ class WechatController extends Controller
                     return $user->nickname.'收到事件消息';
 
                 case 'text':
+                    return $message->Content;
                     $new = new NewsItem([
                         'title'       => 'Coding10 欢迎你',
                         'description' => 'XXXXX',
