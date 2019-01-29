@@ -72,7 +72,7 @@ return [
              */
              'oauth' => [
                  'scopes'   => 'snsapi_userinfo',
-                 'callback' => '',
+                 'callback' => 'ccc',
              ],
         ],
     ],
