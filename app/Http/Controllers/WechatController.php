@@ -50,8 +50,9 @@ class WechatController extends Controller
                     //return $user->nickname.'收到文字消息';
 
                 case 'image':
-                    $image = new Image('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo');
-                    return $image;
+//                    $image = new Image('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo');
+                    $wechat->customer_service->message('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo')->to($message->FromUserName)->send();
+                    return '';
                     //return $user->nickname.'收到图片消息';
 
                 case 'voice':
