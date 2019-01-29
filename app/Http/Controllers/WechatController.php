@@ -68,4 +68,11 @@ class WechatController extends Controller
     {
         dd($this->wechat->user_tag->usersOfTag($tag_id));
     }
+
+    public function uploadImage()
+    {
+        $result = $this->wechat->material->uploadImage(public_path('/coding10.png'));
+
+        dd($result);
+    }
 }
