@@ -36,10 +36,32 @@ class WechatController extends Controller
             $user = $wechat->user->get($message->FromUserName);
             switch ($message->MsgType) {
                 case 'event':
+                    switch ($message->Event) {
+                        case 'subscribe':
+
+                            break;
+
+                        case 'unsubscribe':
+                            break;
+
+                        case 'CLICK':
+                            switch ($message->EventKey) {
+                                case 'KEY_GIVE_ME_OK':
+                                    return '我给你点赞';
+
+                                case 'KEY_ABOUT_US':
+                                    return '你点击了关于我们';
+
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                     return $user->nickname.'收到事件消息';
 
                 case 'text':
-                    return $message->Content;
                     $new = new NewsItem([
                         'title'       => 'Coding10 欢迎你',
                         'description' => 'XXXXX',
@@ -113,5 +135,37 @@ class WechatController extends Controller
         $open_ids = $this->getUsersBelongsToTag(102);
         $this->wechat->broadcasting->sendImage('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo',$open_ids);
         return 'Done';
+    }
+
+    public function addMenu()
+    {
+        $buttons = [
+            [
+                "type" => "click",
+                "name" => "About Us",
+                "key"  => "KEY_ABOUT_US"
+            ],
+            [
+                "name"       => "菜单",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "搜索",
+                        "url"  => "http://www.soso.com/"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "视频",
+                        "url"  => "http://v.qq.com/"
+                    ],
+                    [
+                        "type" => "click",
+                        "name" => "赞一下我们",
+                        "key" => "KEY_GIVE_ME_OK"
+                    ],
+                ],
+            ],
+        ];
+        $this->wechat->menu->create($buttons);
     }
 }

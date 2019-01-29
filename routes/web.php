@@ -25,3 +25,4 @@ Route::get('/material/{material_id}', 'WechatController@getMaterial');
 Route::get('/materials', 'WechatController@getMaterials');
 
 Route::get('/broadcasting', 'WechatController@broadcastTagUsers');
+Route::get('/menu', 'WechatController@addMenu');
