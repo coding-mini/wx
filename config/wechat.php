@@ -71,7 +71,7 @@ return [
              * callback：OAuth授权完成后的回调页地址(如果使用中间件，则随便填写。。。)
              */
              'oauth' => [
-                 'scopes'   => array_map('trim', explode(',', 'snsapi_userinfo')),
+                 'scopes'   => 'snsapi_userinfo',
                  'callback' => '',
              ],
         ],
