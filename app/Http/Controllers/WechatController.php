@@ -63,4 +63,9 @@ class WechatController extends Controller
     {
         dd($this->wechat->user_tag->list());
     }
+
+    public function getUsersBelongsToTag($tag_id)
+    {
+        dd($this->wechat->user_tag->usersOfTag($tag_id));
+    }
 }

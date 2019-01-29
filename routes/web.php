@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::any('/wechat', 'WechatController@serve');
-Route::any('/wechat/users', 'WechatController@getUsers');
-Route::any('/wechat/tags', 'WechatController@getTags');
+Route::get('/wechat/users', 'WechatController@getUsers');
+Route::get('/wechat/tags', 'WechatController@getTags');
+Route::get('/tag/{id}', 'WechatController@getTags');
