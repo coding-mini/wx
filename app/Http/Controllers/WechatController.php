@@ -67,7 +67,7 @@ class WechatController extends Controller
 
     public function getUsersBelongsToTag($tag_id)
     {
-        dd($this->wechat->user_tag->usersOfTag($tag_id));
+        return $this->wechat->user_tag->usersOfTag($tag_id)->data->openid;
     }
 
     public function uploadImage()
@@ -80,12 +80,18 @@ class WechatController extends Controller
     public function getMaterial($material_id)
     {
         $stream = $this->wechat->material->get($material_id);
-        $image = new Image($material_id);
-        dd($image);
+
         if ($stream instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
             // 以内容 md5 为文件名
-            new Image($material_id);
             $stream->save('materials');
         }
+    }
+
+    public function broadcastTagUsers()
+    {
+//        $image = new Image('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo');
+        $open_ids = $this->getUsersBelongsToTag(102);
+        $this->wechat->broadcasting->sendImage('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo',$open_ids);
+        return 'Done';
     }
 }
