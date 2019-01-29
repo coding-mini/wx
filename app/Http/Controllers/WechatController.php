@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use EasyWeChat\Kernel\Messages\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -79,9 +80,12 @@ class WechatController extends Controller
     public function getMaterial($material_id)
     {
         $stream = $this->wechat->material->get($material_id);
+        $image = new Image($material_id);
+        dd($image);
         if ($stream instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
             // 以内容 md5 为文件名
-            $stream->save('public/materials');
+            new Image($material_id);
+            $stream->save('materials');
         }
     }
 }
