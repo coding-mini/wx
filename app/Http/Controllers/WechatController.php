@@ -150,8 +150,8 @@ class WechatController extends Controller
                 "sub_button" => [
                     [
                         "type" => "view",
-                        "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
+                        "name" => "OAuth2",
+                        "url"  => "http://www.laravel-tube.com/oauth"
                     ],
                     [
                         "type" => "view",
