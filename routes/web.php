@@ -26,3 +26,5 @@ Route::get('/materials', 'WechatController@getMaterials');
 
 Route::get('/broadcasting', 'WechatController@broadcastTagUsers');
 Route::get('/menu', 'WechatController@addMenu');
+
+Route::get('/oauth', 'WechatController@oAuth')->middleware('wechat.oauth');
