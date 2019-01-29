@@ -42,7 +42,7 @@ class WechatController extends Controller
                 case 'image':
                     $image = new Image('wWzPhXyhPpOxBB-jDIPmwk6FkS_i1qcg74VwcjVjEVo');
                     return $image;
-                    //$wechat->staff->message($image)->to($message->FromUserName)->send();
+                    //$wechat->customer_service->message($image)->to($message->FromUserName)->send();
                     //return $user->nickname.'收到图片消息';
 
                 case 'voice':
